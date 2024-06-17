@@ -1,0 +1,39 @@
+﻿@model Book
+
+<h3>@Model.Title Information</h3>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>ISBN</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Year Published</th>
+        <th>Genre</th>
+        <th>Completed</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>@Model.ID</td>
+        <td>@Model.ISBN</td>
+        <td>@Model.Title</td>
+        <td>@Model.Author</td>
+        <td>@Model.YearPublished</td>
+        <td>@Model.Genre</td>
+        <td>@Model.Completed</td>
+        <td>@Model.Description</td>
+    </tr>
+</table>
+
+<div style="display: block">
+    <a href="/Book/UpdateBook/@Model.ID">Update this book</a>
+</div>
+
+<div style="display: block">
+
+    @using (Html.BeginForm("DeleteBook", "Book", "Post"))
+    {
+        <input type="hidden" asp-for="ID" value="@Model.ID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this book" />
+    }
+</div>

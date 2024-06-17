@@ -1,0 +1,31 @@
+﻿@model Book
+
+<h2>Update @Model.Title</h2>
+
+@using (Html.BeginForm("UpdateBookToDatabase", "Book", "Post"))
+{
+    <input asp-for="ID" type="hidden" value="@Model.ID" />
+
+    <label asp-for="ISBN" class="control-label">ISBN</label>
+    <input type="number" step="1" name="ISBN" class="form-control" value="@Model.ISBN" />
+
+    <label asp-for="Title" class="control-label">Title</label>
+    <input type="text" name="Title" class="form-control" value="@Model.Title" />
+
+    <label asp-for="Author" class="control-label">Author</label>
+    <input type="text"  name="Author" class="form-control" value="@Model.Author" />
+
+    <label asp-for="YearPublished" class="control-label">Year Published</label>
+    <input type="number" step="1" name="YearPublished" class="form-control" value="@Model.YearPublished" />
+
+    <label asp-for="Genre" class="control-label">Genre</label>
+    <input type="text" name="Genre" class="form-control" value="@Model.Genre" />
+
+    <label asp-for="Completed" class="control-label">Completed</label>
+    <input type="text" name="Completed" class="form-control" value="@Model.Completed" />
+
+    <label asp-for="Description" class="control-label">Description</label>
+    <input type="text" name="Description" class="form-control" value="@Model.Description" />
+
+    <input type="submit" value="Update Book" class="btn btn-primary" />
+}

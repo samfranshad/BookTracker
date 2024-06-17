@@ -1,0 +1,32 @@
+﻿@model Book
+
+<h2>Add a new book</h2>
+
+@using (Html.BeginForm("InsertBookToDatabase", "Book", "Post"))
+{
+    <input asp-for="ID" type="hidden" value="" />
+
+    <label asp-for="ISBN" class="control-label">ISBN</label>
+    <input type="number" step="1" name="ISBN" class="form-control" />
+    
+    <label asp-for="Title" class="control-label">Title</label>
+    <input type="text" name="Title" class="form-control" value="" />
+
+    <label asp-for="Author" class="control-label">Author</label>
+    <input type="text" name="Author" class="form-control" value="" />
+
+    <label asp-for="YearPublished" class="control-label">Year Published</label>
+    <input type="number" step="1" name="YearPublished" class="form-control" />
+
+    <label asp-for="Genre" class="control-label">Genre</label>
+    <input type="text" name="Genre" class="form-control" value="" />
+
+    <label asp-for="Completed" class="control-label">Completed</label>
+    <input type="text" name="Completed" class="form-control" value="" />
+
+    <label asp-for="Description" class="control-label">Description</label>
+    <input type="text" name="Description" class="form-control" value="" />
+
+
+    <input type="submit" value="Add Book" class="btn btn-primary" />
+}
