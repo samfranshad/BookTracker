@@ -15,6 +15,7 @@ builder.Services.AddScoped<IDbConnection>((s) =>
 });
 
 builder.Services.AddTransient<IBookRepo, BookRepo>();
+builder.Services.AddTransient<IAuthorRepo, AuthorRepo>();
 
 var app = builder.Build();
 

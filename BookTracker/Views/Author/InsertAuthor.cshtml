@@ -1,0 +1,27 @@
+﻿@model Author
+
+<h2 class="title">Add a new author</h2>
+
+<div class="form">
+@using (Html.BeginForm("InsertAuthorToDatabase", "Author", "Post"))
+{
+    <input asp-for="AuthorID" type="hidden" value="" />
+
+    <label asp-for="AuthorName" class="control-label">Author Name</label>
+    <input type="text" name="AuthorName" class="form-control" value="" />
+
+    <label asp-for="BornDied" class="control-label">Born-Died</label>
+    <input type="text" name="BornDied" class="form-control" value="" />
+
+    <label asp-for="InLibrary" class="control-label">Works in Library</label>
+    <input type="text" name="InLibrary" class="form-control" value="" />
+
+    <label asp-for="NotableWorks" class="control-label">Notable Works</label>
+    <input type="text" name="NotableWorks" class="form-control" value="" />
+
+    <label asp-for="Bio" class="control-label">Bio</label>
+    <input type="text" name="Bio" class="form-control" value="" />
+
+    <input type="submit" value="Add Author" class="btn btn-primary" />
+}
+</div>

@@ -1,0 +1,29 @@
+﻿@model Author
+
+<h2 class="title">Update information for @Model.AuthorName</h2>
+
+<div class="form">
+@using (Html.BeginForm("UpdateAuthorToDatabase", "Author", "Post"))
+{
+    <input asp-for="AuthorID" type="hidden" value="@Model.AuthorID" />
+
+    <label asp-for="AuthorName" class="control-label">Author Name</label>
+    <input type="text" name="AuthorName" class="form-control" value="@Model.AuthorName" />
+
+    <label asp-for="BornDied" class="control-label">Born-Died</label>
+    <input type="text" name="BornDied" class="form-control" value="@Model.BornDied" />
+
+    <label asp-for="InLibrary" class="control-label">Works in Library</label>
+    <input type="text" name="InLibrary" class="form-control" value="@Model.InLibrary" />
+
+    <label asp-for="NotableWorks" class="control-label">Notable Works</label>
+    <input type="text" name="NotableWorks" class="form-control" value="@Model.NotableWorks" />
+
+    <label asp-for="Bio" class="control-label">Bio</label>
+    <input type="text" name="Bio" class="form-control" value="@Model.Bio" />
+
+    <input type="submit" value="Update author information" class="btn btn-primary" />
+}
+</div>
+
+

@@ -1,0 +1,41 @@
+﻿@model Author
+
+<h3 class="title">@Model.AuthorName</h3>
+
+<table class="table">
+    <tr>
+        <th>Author ID</th>
+        <th>Author</th>
+        <th>Born-Died</th>
+        <th>Works In Library</th>
+        <th>Notable Works</th>
+    </tr>
+    <tr>
+        <td>@Model.AuthorID</td>
+        <td>@Model.AuthorName</td>
+        <td>@Model.BornDied</td>
+        <td>@Model.InLibrary</td>
+        <td>@Model.NotableWorks</td>
+    </tr>
+</table>
+
+<table class="table">
+    <tr>
+        <th>Bio</th>
+    </tr>
+    <tr>
+        <td>@Model.Bio</td>
+    </tr>
+</table>
+
+<div style="display: block">
+    <form class="button" action="/Author/UpdateAuthor/@Model.AuthorID">
+        <input type="submit" value="Update this author" />
+    </form>
+
+    @using (Html.BeginForm("DeleteAuthor", "Author", "Post"))
+    {
+        <input type="hidden" asp-for="AuthorID" value="@Model.AuthorID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this author" />
+    }
+</div>

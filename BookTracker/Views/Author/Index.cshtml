@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Author>
+
+<h2 class="title">Authors</h2>
+
+<div class="button">
+    <form action="/Author/InsertAuthor/">
+        <input type="submit" value="Add a new author" />
+    </form>
+</div>
+
+<table class="table">
+    <tr>
+        <th>Author ID</th>
+        <th>Author</th>
+        <th>Born-Died</th>
+        <th>Works In Library</th>
+    </tr>
+
+    @foreach (var author in @Model)
+    {
+        <tr>
+            <td><a href=/Author/ViewAuthor/@author.AuthorID>@author.AuthorID</a></td>
+            <td>@author.AuthorName</td>
+            <td>@author.BornDied</td>
+            <td>@author.InLibrary</td>
+        </tr>
+    }
+
+</table>
