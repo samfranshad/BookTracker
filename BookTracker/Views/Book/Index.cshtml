@@ -1,9 +1,11 @@
 ﻿@model IEnumerable<Book>
 
-<h2>Books</h2>
+<h2 class="title">Books</h2>
 
-<div style="display: block">
-    <a href="/Book/InsertBook/">Add a new book</a>
+<div class="button">
+    <form action="/Book/InsertBook/">
+    <input type="submit" value="Add a new book" />
+</form>
 </div>
 
 <table class="table">
@@ -17,7 +19,7 @@
     @foreach (var book in @Model)
     {
         <tr>
-            <td><a href=/Book/ViewBook/@book.ID>@book.ID</a></td>
+            <td class="bookID"><a href=/Book/ViewBook/@book.ID>@book.ID</a></td>
             <td>@book.Title</td>
             <td>@book.Author</td>
             <td>@book.Completed</td>

@@ -1,6 +1,10 @@
 ﻿@model Book
 
-<h3>@Model.Title Information</h3>
+<h3 class="title">@Model.Title</h3>
+
+<div>
+    <img class="bookCover" src="https://covers.openlibrary.org/b/ISBN/@Model.ISBN-M.jpg" alt="Image of book cover" />
+</div>
 
 <table class="table">
     <tr>
@@ -11,7 +15,7 @@
         <th>Year Published</th>
         <th>Genre</th>
         <th>Completed</th>
-        <th>Description</th>
+        
     </tr>
     <tr>
         <td>@Model.ID</td>
@@ -21,15 +25,27 @@
         <td>@Model.YearPublished</td>
         <td>@Model.Genre</td>
         <td>@Model.Completed</td>
+        
+    </tr>
+</table>
+
+
+
+<table class="table">
+    <tr>
+        <th>Description</th>
+    </tr>
+    <tr>
         <td>@Model.Description</td>
     </tr>
 </table>
 
-<div style="display: block">
-    <a href="/Book/UpdateBook/@Model.ID">Update this book</a>
-</div>
 
-<div style="display: block">
+
+<div  style="display: block">
+    <form class="button" action="/Book/UpdateBook/@Model.ID">
+        <input type="submit" value="Update this book" />
+    </form>
 
     @using (Html.BeginForm("DeleteBook", "Book", "Post"))
     {

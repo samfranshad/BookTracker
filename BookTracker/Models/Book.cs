@@ -10,6 +10,7 @@
         public string Genre { get; set; }
         public string Completed { get; set; }
         public string Description { get; set; }
+        
 
     }
 }

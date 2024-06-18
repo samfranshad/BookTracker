@@ -18,5 +18,68 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-image: url('../images/bookshelf6.jpg');
+    background-repeat: repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    
 }
+
+.table {
+    border-spacing: 0;
+    border-collapse: separate;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+th {
+    padding: 70 px 0;
+}
+
+tr:nth-child(even) {
+    background-color: #E1F3FB;
+    
+}
+tr:nth-child(odd) {
+    background-color: #ccf0fc;
+}
+
+.title {
+    font-weight: bold;
+    display: inline-block;
+    background-color: #ccf0fc;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    
+}
+
+.form {
+    background-color: #ccf0fc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.button {
+    margin-bottom: 5px;
+}
+
+.text-center {
+    background-color: #ccf0fc;
+    border-radius: 5px;
+}
+
+.footer {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.bookCover {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+

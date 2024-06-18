@@ -1,7 +1,8 @@
 ﻿@model Book
 
-<h2>Update @Model.Title</h2>
+<h2 class="title">Update: @Model.Title</h2>
 
+<div class="form">
 @using (Html.BeginForm("UpdateBookToDatabase", "Book", "Post"))
 {
     <input asp-for="ID" type="hidden" value="@Model.ID" />
@@ -29,3 +30,4 @@
 
     <input type="submit" value="Update Book" class="btn btn-primary" />
 }
+</div>
