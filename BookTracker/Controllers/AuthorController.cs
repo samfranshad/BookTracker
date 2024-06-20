@@ -12,9 +12,53 @@ namespace BookTracker.Controllers
         {
             this.repo = repo;
         }
-        public IActionResult Index()
+        //public IActionResult Index()
+        //{
+        //    var authors = repo.GetAllAuthors();
+        //    return View(authors);
+        //}
+
+        public async Task<IActionResult> Index (string sortOrder, string searchString)
         {
-            var authors = repo.GetAllAuthors();
+            ViewData["AuthorIDSortParm"] = String.IsNullOrEmpty(sortOrder) ? "authorID_desc" : "";
+            ViewData["AuthorNameSortParm"] = sortOrder == "AuthorName" ? "authorName_desc" : "AuthorName";
+            ViewData["BornDiedSortParm"] = sortOrder == "BornDied" ? "bornDied_desc" : "BornDied";
+            ViewData["InLibrarySortParm"] = sortOrder == "InLibrary" ? "inLibrary_desc" : "InLibrary";
+            ViewData["CurrentFilter"] = searchString;
+            var authors = from a in repo.GetAllAuthors() select a;
+
+            if(!String.IsNullOrEmpty(searchString) )
+            {
+                authors = authors.Where(a => a.AuthorName.Contains(searchString) || a.InLibrary.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "authorID_desc": 
+                    authors = authors.OrderByDescending(a => a.AuthorID);
+                    break;
+                case "AuthorName":
+                    authors = authors.OrderBy(a => a.AuthorName);
+                    break;
+                case "authorName_desc":
+                    authors = authors.OrderByDescending(a => a.AuthorName);
+                    break;
+                case "BornDied":
+                    authors = authors.OrderBy(a => a.BornDied);
+                    break;
+                case "bornDied_desc":
+                    authors = authors.OrderByDescending(a => a.BornDied);
+                    break;
+                case "InLibrary":
+                    authors = authors.OrderBy(a => a.InLibrary);
+                    break;
+                case "inLibrary_desc":
+                    authors = authors.OrderByDescending(a => a.InLibrary);
+                    break;
+                default:
+                    authors = authors.OrderBy(a => a.AuthorID);
+                    break;
+            }
             return View(authors);
         }
 

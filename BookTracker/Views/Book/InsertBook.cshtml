@@ -1,5 +1,7 @@
 ﻿@model Book
-
+@{
+    ViewData["Title"] = "Add Book";
+}
 <h2 class="title">Add a new book</h2>
 
 <div class="form">
@@ -26,7 +28,7 @@
     <input type="text" name="Completed" class="form-control" value="" />
 
     <label asp-for="Description" class="control-label">Description</label>
-    <input type="text" name="Description" class="form-control" value="" />
+    <textarea class="bigBox" rows="3" name="Description" class="form-control" value=""></textarea>
 
 
     <input type="submit" value="Add Book" class="btn btn-primary" />

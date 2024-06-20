@@ -1,11 +1,34 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Book>
+@{
+    ViewData["Title"] = "Home";
 }
 
 
 
 <div class="text-center">
-    <h1 class="display-4">Welcome to my bookshelf!</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to the Shadwell Bookshelf</h1>
+    <div class="homeDetails">
+    <p>Find information on books and authors:</p>
+    <div class="homeList">
+    <ul class="homeUL">
+        <li>Book descriptions</li>
+        <li>Genres</li>
+        <li>Author bios</li>
+        <li>Author's notable works</li>
+        <li>Book completion status</li>
+    </ul>
+    </div>
+    
+
+    <form asp-controller="Book" asp-action="Index" method="get">
+        <div class="form-actions no-color">
+            <p>
+                Find book by title or author: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                <input type="submit" value="Search" class="btn btn-default" />
+                
+            </p>
+        </div>
+    </form>
+    </div>
 </div>
 

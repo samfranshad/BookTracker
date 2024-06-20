@@ -1,4 +1,7 @@
 ﻿@model Author
+@{
+    ViewData["Title"] = "Update Author";
+}
 
 <h2 class="title">Update information for @Model.AuthorName</h2>
 
@@ -20,7 +23,7 @@
     <input type="text" name="NotableWorks" class="form-control" value="@Model.NotableWorks" />
 
     <label asp-for="Bio" class="control-label">Bio</label>
-    <input type="text" name="Bio" class="form-control" value="@Model.Bio" />
+    <textarea class="bigBox" rows="3" cols="25" name="Bio" class="form-control">@Model.Bio</textarea>
 
     <input type="submit" value="Update author information" class="btn btn-primary" />
 }

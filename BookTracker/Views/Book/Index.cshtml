@@ -1,21 +1,37 @@
 ﻿@model IEnumerable<Book>
+@{
+    ViewData["Title"] = "Books";
+}
 
 <h2 class="title">Books</h2>
 
+
+<form  asp-controller="Book" asp-action="Index" method="get">
+    <div class="searchForm form-actions no-color">
+        <p>
+            Find by name or author: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+
 <div class="button">
     <form action="/Book/InsertBook/">
-    <input type="submit" value="Add a new book" />
-</form>
+        <input type="submit" value="Add a new book" />
+    </form>
 </div>
 
 <table class="table">
+    <thead>
     <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Completed</th>
+            <th> <a class="tableHeader" asp-action="Index" asp-route-sortOrder="@ViewData["IDSortParm"]">@Html.DisplayNameFor(model => model.ID)</a></th>
+            <th> <a class="tableHeader" asp-action="Index" asp-route-sortOrder="@ViewData["TitleSortParm"]">@Html.DisplayNameFor(model => model.Title)</a></th>
+            <th> <a class="tableHeader" asp-action="Index" asp-route-sortOrder="@ViewData["AuthorSortParm"]">@Html.DisplayNameFor(model => model.Author)</a></th>
+            <th> <a class="tableHeader" asp-action="Index" asp-route-sortOrder="@ViewData["CompletedSortParm"]">@Html.DisplayNameFor(model => model.Completed)</a></th>
     </tr>
-
+    </thead>
+    <tbody>
     @foreach (var book in @Model)
     {
         <tr>
@@ -25,5 +41,5 @@
             <td>@book.Completed</td>
         </tr>
     }
-
+    </tbody>
 </table>

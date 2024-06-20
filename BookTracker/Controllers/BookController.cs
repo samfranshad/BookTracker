@@ -13,11 +13,50 @@ namespace BookTracker.Controllers
             this.repo = repo;
         }
 
-        public IActionResult Index()
+
+        public async Task<IActionResult> Index (string sortOrder, string searchString)
         {
-            var books = repo.GetAllBooks();
+            ViewData["IDSortParm"] = String.IsNullOrEmpty(sortOrder) ? "ID_desc" : "";
+            ViewData["TitleSortParm"] = sortOrder == "Title" ? "title_desc" : "Title";
+            ViewData["AuthorSortParm"] = sortOrder == "Author" ? "author_desc" : "Author";
+            ViewData["CompletedSortParm"] = sortOrder == "Completed" ? "completed_desc" : "Completed";
+            ViewData["CurrentFilter"] = searchString;
+            var books = from b in repo.GetAllBooks() select b;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                books = books.Where(b => b.Title.Contains(searchString) || b.Author.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "ID_desc":
+                    books = books.OrderByDescending(b => b.ID); 
+                    break;
+                case "Title":
+                    books = books.OrderBy(b => b.Title);
+                    break;
+                case "title_desc":
+                    books = books.OrderByDescending(b => b.Title);
+                    break;
+                case "Author":
+                    books = books.OrderBy(b => b.Author);
+                    break;
+                case "author_desc":
+                    books = books.OrderByDescending(b => b.Author);
+                    break;
+                case "Completed":
+                    books = books.OrderBy(b => b.Completed);
+                    break;
+                case "completed_desc":
+                    books = books.OrderByDescending(b => b.Completed);
+                    break;
+                default:
+                    books = books.OrderBy(b => b.ID);
+                    break;
+            }
             return View(books);
         }
+
 
         public IActionResult ViewBook(int id)
         {
