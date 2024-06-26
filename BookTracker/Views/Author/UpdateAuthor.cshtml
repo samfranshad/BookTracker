@@ -3,7 +3,7 @@
     ViewData["Title"] = "Update Author";
 }
 
-<h2 class="title">Update information for @Model.AuthorName</h2>
+<p class="title"><span class="fancy">Update: @Model.AuthorName</span></p>
 
 <div class="form">
 @using (Html.BeginForm("UpdateAuthorToDatabase", "Author", "Post"))
@@ -25,7 +25,7 @@
     <label asp-for="Bio" class="control-label">Bio</label>
     <textarea class="bigBox" rows="3" cols="25" name="Bio" class="form-control">@Model.Bio</textarea>
 
-    <input type="submit" value="Update author information" class="btn btn-primary" />
+    <input type="submit" value="Update author information" class="button2 btn btn-primary" />
 }
 </div>
 

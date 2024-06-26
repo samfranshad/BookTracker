@@ -3,7 +3,7 @@
     ViewData["Title"] = "Update Book";
 }
 
-<h2 class="title">Update: @Model.Title</h2>
+<p class="bookTitle"><span class="fancyTitle">Update: @Model.Title</span></p>
 
 <div class="form">
 @using (Html.BeginForm("UpdateBookToDatabase", "Book", "Post"))
@@ -31,6 +31,6 @@
     <label asp-for="Description" class="control-label">Description</label>
         <textarea class="bigBox" rows="3" cols="25" name="Description" class="form-control">@Model.Description</textarea>
 
-    <input type="submit" value="Update Book" class="btn btn-primary" />
+    <input type="submit" value="Update Book" class="button2 btn btn-primary" />
 }
 </div>

@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Add Book";
 }
-<h2 class="title">Add a new book</h2>
+<p class="title"><span class="fancy">Add a new book</span></p>
 
 <div class="form">
 @using (Html.BeginForm("InsertBookToDatabase", "Book", "Post"))
@@ -31,6 +31,6 @@
     <textarea class="bigBox" rows="3" name="Description" class="form-control" value=""></textarea>
 
 
-    <input type="submit" value="Add Book" class="btn btn-primary" />
+    <input type="submit" value="Add Book" class="button2 btn btn-primary" />
 }
 </div>

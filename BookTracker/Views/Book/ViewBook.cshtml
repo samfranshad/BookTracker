@@ -3,11 +3,9 @@
     ViewData["Title"] = "Details";
 }
 
-<h3 class="title">@Model.Title</h3>
+<p class="bookTitle"><span class="fancyTitle">@Model.Title</span></p>
 
-<div>
-    <img class="bookCover" src="https://covers.openlibrary.org/b/ISBN/@Model.ISBN-M.jpg" alt="Image of book cover" />
-</div>
+
 
 <table class="table">
     <tr>
@@ -33,16 +31,20 @@
 </table>
 
 
+<div class="elementRow">
+<div class="column1">
+    <img class="bookCover" src="https://covers.openlibrary.org/b/ISBN/@Model.ISBN-M.jpg" alt="Image of book cover" />
+</div>
 
-<table class="table">
-    <tr>
+<table class=" column2">
+        <tr class="descriptionTable">
         <th>Description</th>
     </tr>
     <tr>
         <td>@Model.Description</td>
     </tr>
 </table>
-
+</div>
 
 
 <div  style="display: block">

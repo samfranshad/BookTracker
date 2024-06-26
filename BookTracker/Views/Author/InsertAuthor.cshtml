@@ -3,7 +3,7 @@
     ViewData["Title"] = "Add Author";
 }
 
-<h2 class="title">Add a new author</h2>
+<p class="title"><span class="fancy">Add a New Author</span></p>
 
 <div class="form">
 @using (Html.BeginForm("InsertAuthorToDatabase", "Author", "Post"))
@@ -25,6 +25,6 @@
     <label asp-for="Bio" class="control-label">Bio</label>
     <textarea class="bigBox" rows="3" cols="25" name="Bio" class="form-control" value=""></textarea>
 
-    <input type="submit" value="Add Author" class="btn btn-primary" />
+    <input type="submit" value="Add Author" class="button2 btn btn-primary" />
 }
 </div>
