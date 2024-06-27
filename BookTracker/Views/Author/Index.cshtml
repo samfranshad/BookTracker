@@ -24,10 +24,10 @@
 
 <table class="table">
     <tr>
-        <th> <a class="tableHeader" asp-action="Index" asp-route-sortOrder="@ViewData["AuthorIDSortParm"]">@Html.DisplayNameFor(model => model.AuthorID)</a></th>
-        <th> <a class="tableHeader" asp-action="Index" asp-route-sortOrder="@ViewData["AuthorNameSortParm"]">@Html.DisplayNameFor(model => model.AuthorName)</a></th>
-        <th> <a class="tableHeader" asp-action="Index" asp-route-sortOrder="@ViewData["BornDiedSortParm"]">@Html.DisplayNameFor(model => model.BornDied)</a></th>
-        <th> <a class="tableHeader" asp-action="Index" asp-route-sortOrder="@ViewData["InLibrarySortParm"]">@Html.DisplayNameFor(model => model.InLibrary)</a></th>
+        <th> <a class="tableHeader" asp-action="Index" asp-route-sortOrder="@ViewData["AuthorIDSortParm"]">ID</a></th>
+        <th> <a class="tableHeader" asp-action="Index" asp-route-sortOrder="@ViewData["AuthorNameSortParm"]">Author Name</a></th>
+        <th> <a class="tableHeader" asp-action="Index" asp-route-sortOrder="@ViewData["BornDiedSortParm"]">Born - Died</a></th>
+        <th> <a class="tableHeader" asp-action="Index" asp-route-sortOrder="@ViewData["InLibrarySortParm"]">In Library</a></th>
     </tr>
 
     @foreach (var author in @Model)

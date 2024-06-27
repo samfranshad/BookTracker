@@ -20,7 +20,7 @@ namespace BookTracker.Controllers
             ViewData["TitleSortParm"] = sortOrder == "Title" ? "title_desc" : "Title";
             ViewData["AuthorSortParm"] = sortOrder == "Author" ? "author_desc" : "Author";
             ViewData["CompletedSortParm"] = sortOrder == "Completed" ? "completed_desc" : "Completed";
-            ViewData["CurrentFilter"] = searchString;
+            ViewData["CurrentFilter"] = searchString.ToLower();
             var books = from b in repo.GetAllBooks() select b;
 
             if (!String.IsNullOrEmpty(searchString))
